@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+     <style>
+        /* Smooth hover elevation and border change */
+        .food-card {
+            transition: transform 0.3s ease, box-shadow  0.9s ease, border-color 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #f1f3f5;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        /* Subtle icon bounce on hover */
+        .food-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .food-card:hover .food-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        /* Food theme color accents */
+    </style>
+</head>
+<body>
+   
+      <nav class="navbar navbar-expand-lg shadow fixed-top bg-white" style="margin-bottom: 50px;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" style="color: rgba(231, 73, 16, 0.916);" href="boot.html">FOODIE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="home">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-black active" aria-current="page" href="boot.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="about.html">about</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-black" href="contact.html">contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-black fw-bold dropdown-toggle" href="category.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#healthy food">Healthy food</a></li>
+                            <li><a class="dropdown-item" href="#drink">Drink</a></li>
+                            <li><a class="dropdown-item" href="#nutritious">Nutritious</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <form class="d-flex align-items-center justify-content-center me-4 gap-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                    </svg>
+                </form>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="container py-5">
+        <div class="text-center mb-5 mt-5">
+            <span class="text-uppercase text-danger fw-bold tracking-wider small">In the Mood for Something Tasty?</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-3">Explore Food Categories</h2>
+            <p class="text-muted mx-auto" style="max-width: 550px;">
+                Discover our handpicked dishes, freshly prepared and curated just the way you like it.
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="card h-100 text-center p-3 food-card shadow-sm rounded-4 bg-white">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="accent-pizza mb-3 food-icon">
+                            <i class="bi bi-pie-chart-fill fs-1"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">Pizzas</h6>
+                        <span class="text-muted small">18 Options</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="card h-100 text-center p-3 food-card shadow-sm rounded-4 bg-white">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="accent-burger mb-3 food-icon">
+                            <i class="bi bi-ticket-detailed-fill fs-1" style="transform: rotate(90deg); display:inline-block;"></i> 
+                            </div>
+                        <h6 class="fw-bold text-dark mb-1">Burgers</h6>
+                        <span class="text-muted small">12 Options</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="card h-100 text-center p-3 food-card shadow-sm rounded-4 bg-white">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="accent-healthy mb-3 food-icon">
+                            <i class="bi bi-flower1 fs-1"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">Healthy</h6>
+                        <span class="text-muted small">24 Options</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="card h-100 text-center p-3 food-card shadow-sm rounded-4 bg-white">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="accent-dessert mb-3 food-icon">
+                            <i class="bi bi-cake2-fill fs-1"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">Desserts</h6>
+                        <span class="text-muted small">15 Options</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="card h-100 text-center p-3 food-card shadow-sm rounded-4 bg-white">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="accent-coffee mb-3 food-icon">
+                            <i class="bi bi-cup-hot-fill fs-1"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">Drinks</h6>
+                        <span class="text-muted small">32 Options</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="card h-100 text-center p-3 food-card shadow-sm rounded-4 bg-white">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="accent-seafood mb-3 food-icon">
+                            <i class="bi bi-water fs-1"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">Seafood</h6>
+                        <span class="text-muted small">9 Options</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<section id="drink">
+      <div class="container text-center">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/ae/34/84/ae3484c74b82ef668d99f42cb3314026.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">ICE LATTE</h5>
+    <p class="card-text">Price : 1.75$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/e3/78/59/e378592766cf9f7b8a5e30aae5696355.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">BlUEBERRAY</h5>
+    <p class="card-text">Price : 2$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/13/31/87/133187688edddd1157da263a05ce05df.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">STRAWBERRY</h5>
+    <p class="card-text">Price : 2$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+      <div class="container text-center mt-4 mb-2 g-4">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/4b/a5/23/4ba5230340f36de28d6cafbcd7932efa.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">MATCHA LATTE</h5>
+    <p class="card-text">Price : 2.5$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/ba/8b/6b/ba8b6b10dddce06cf62c713123d0eee5.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">STRAWBERRAY MATCHA</h5>
+    <p class="card-text">Price : 3$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/52/68/d4/5268d4aeeaaf347520a221ad55604202.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">HONEY MATCHA</h5>
+    <p class="card-text">Price : 3$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+      <div class="container text-center mt-4 mb-2 g-4">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/bc/ff/c0/bcffc047d62ea4b955da5695799737a8.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">CHOCOLATE MILK</h5>
+    <p class="card-text">Price : 3$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/e0/3a/9c/e03a9c78dab382ec48affff1ac3e49be.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">CARAMEL POPCORN</h5>
+    <p class="card-text">Price : 3$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/c3/fb/7e/c3fb7eff1b2a7827ba98e9c9eccb0354.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">STRAWBERRAY CREAM</h5>
+    <p class="card-text">Price : 4$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+</section>    
+<section id="nutritious">   
+     <div class="container text-center">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/fe/65/fd/fe65fd37f7e8627b8d1f7951e7f3c8d1.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">MASHED POTATOES</h5>
+    <p class="card-text">Price : 8$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/e3/0b/ee/e30beea4013a56332eb0ce151bf103b8.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">BlUEBERRAY</h5>
+    <p class="card-text">Price : 2$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/5d/04/95/5d04951633748eba41e2f65339ff378d.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">STEAK</h5>
+    <p class="card-text">Price : 2$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+      <div class="container text-center mt-4 mb-2 g-4">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/b3/c6/cc/b3c6ccb351e5f41c440dda29de5e9e32.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">SALMON GRILLED</h5>
+    <p class="card-text">Price : 6$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/8c/57/68/8c5768a194d67aef0a4e17fe5403f005.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">CHICKAN RICE</h5>
+    <p class="card-text">Price : 4$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src=" https://i.pinimg.com/1200x/3d/6b/26/3d6b2636654d281dd0864cb5241930a2.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">BEEF STEAK</h5>
+    <p class="card-text">Price : 9$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+      <div class="container text-center mt-4 mb-2 g-4">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/f7/c4/e6/f7c4e6ffad6fa0be88a8866778c12b73.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">CHICKEN GRILLED</h5>
+    <p class="card-text">Price : 3$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/d3/e2/97/d3e297b0f656a5a5e360fd542407a7e5.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">FRESH SALAH</h5>
+    <p class="card-text">Price : 1.5$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/1200x/b9/09/5b/b9095b5f9d32ae6fd216db3de7b342f3.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">MUSHROOM RICE</h5>
+    <p class="card-text">Price : 4$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+</section>    
+<section id="healthy food">   
+     <div class="container text-center">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/ec/f7/07/ecf7075fbb151ab58d71acd5a2dda244.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">PROTEIN MEALS</h5>
+    <p class="card-text">Price : 8$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/ad/9e/55/ad9e55af2bde327e31db213b876e6efa.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">LOSW WEIGHT SALAH</h5>
+    <p class="card-text">Price : 9$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/d0/e9/47/d0e9474c00932a94a6b17ba5996c7803.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">GRILLED SAMON </h5>
+    <p class="card-text">Price : 10$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+      <div class="container text-center mt-4 mb-2 g-4">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/2e/df/6b/2edf6b2097fc636c80464037ffd7da24.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">HIGH PROTEIN</h5>
+    <p class="card-text">Price : 6$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/85/4c/50/854c507294f946b2bec4f90e351b9c71.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">CRAB FOOD </h5>
+    <p class="card-text">Price : 4$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+            </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/94/3e/07/943e07022b5837770061e0ba689ac2b1.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">BEEF STEAK</h5>
+    <p class="card-text">Price : 9$</p>
+    <a href="#" class="btn btn-primary">Order now</a>
+  </div>
+</div>
+         
+        </div>
+    </div>
+     
+</section>    
+    <div class=" py-5 mt-4" style=" background-color: rgb(255, 253, 253); width: 100%;">
+        <!-- Top Row: Phone and Email -->
+        <div class="row g-4 justify-content-center mb-4">
+            
+            <!-- Phone Number Card -->
+            <div class="col-12 col-md-5 d-flex justify-content-md-end justify-content-center">
+                <div class="d-flex align-items-center gap-3" style="min-width: 280px;">
+                    <div class="bg-circle-custom rounded-circle d-flex align-items-center justify-content-center text-white">
+                        <i class="bi bi-telephone-outbound fs-5"></i>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <span class="text-label-custom text-lowercase">phone number</span>
+                        <span class="text-value-custom">+(885) 15298572</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Address Card -->
+            <div class="col-12 col-md-5 d-flex justify-content-md-start justify-content-center">
+                <div class="d-flex align-items-center gap-3" style="min-width: 280px;">
+                    <div class="bg-circle-custom rounded-circle d-flex align-items-center justify-content-center text-white">
+                        <i class="bi bi-envelope-at fs-5"></i>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <span class="text-label-custom text-lowercase">email address</span>
+                        <span class="text-value-custom">leng@cofesolutions.com</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Row: Location -->
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex justify-content-center pe-md-5">
+                <div class="d-flex align-items-center gap-3" style="min-width: 320px; max-width: 500px;">
+                    <div class="bg-circle-custom rounded-circle d-flex align-items-center justify-content-center text-white">
+                        <i class="bi bi-geo-alt-fill fs-5"></i>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <span class="text-label-custom text-lowercase">location</span>
+                        <span class="text-value-custom">RR-22, 3rd Floor, prey sor, PHNOM PENH,...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

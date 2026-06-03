@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Étoile Parfum | Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', 'Georgia', serif;
+        }
+
+        body {
+            background: #fdfbf7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image:
+                              url('https://i.pinimg.com/736x/2c/09/04/2c0904aed6688401670f8921b29af288.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid #eae1d8;
+        }
+
+        .brand-logo {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .brand-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c7a6b;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+            margin-bottom: 0.5rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #dcd1c4;
+            background-color: #faf8f5;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #b59975;
+            background-color: #fff;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .form-actions a {
+            color: #8c7a6b;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .form-actions a:hover {
+            color: #2c2c2c;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            color: #555;
+        }
+
+        .checkbox-container input {
+            margin-right: 0.5rem;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background-color: #2c2c2c;
+            color: #fff;
+            border: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-btn a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .login-btn:hover {
+            background-color: #b59975;
+        }
+
+        .footer-text {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #777;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .footer-text a {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="brand-logo">PERFUME</div>
+        <div class="brand-subtitle">Maison de Parfum</div>
+        
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="name@example.com">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            
+            <div class="form-actions">
+                <label class="checkbox-container">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="login-btn"><a href="index.html">Sign In</a></button>
+        </form>
+        
+        <div class="footer-text">
+            New to the Maison? <a href="#">Create an account</a>
+        </div>
+    </div>
+
+</body>
+</html>

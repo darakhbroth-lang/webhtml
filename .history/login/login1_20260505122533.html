@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Replace the URL below with your actual image file */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url(https://i.pinimg.com/736x/99/37/58/993758dcee70164012bb0eaaf399d3c0.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin:  20px;
+            padding: 20px;
+            font-size: 19px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d19292;
+        }
+
+        .login-btn {
+            background-color: white;
+            color: #333 !important;
+            padding: 8px 25px;
+            border-radius: 5px;
+            font-weight: bold !important;
+        }
+
+        .login-btn:hover {
+            background-color: #656262;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Online shop</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <!-- This link goes to your login page -->
+            <li><a href="login.html" class="login-btn">login</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

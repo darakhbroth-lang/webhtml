@@ -1,0 +1,108 @@
+:root {
+    --index-color: #d2d2d2;
+}
+
+body {
+    margin: 0;
+    background-image: url("../img/2151133206.jpg");
+    background-position: 0%;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Grid Styling */
+.grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, #504f4fcd 1px, transparent 1px),
+        linear-gradient(to bottom, #00000011 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+/* Background Text CSS ONLY */
+.bg-text {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    font-size: 15vw;
+    font-weight: bold;
+    color: #222;
+    opacity: 0.1;
+    z-index: 2;
+}
+
+/* The Robot Subject */
+.model {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+}
+.model img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* The 3D Rotating Container */
+.slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    /* Apply the Auto Rotation */
+    animation: autoRun 20s linear infinite;
+    z-index: 5;
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-15deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateX(-15deg) rotateY(360deg);
+    }
+}
+
+.slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
+        translateZ(450px);
+}
+
+.slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Sidebar Styling */
+.content {
+    position: absolute;
+    right: 50px;
+    bottom: 100px;
+    text-align: right;
+    z-index: 6;
+}
+.author { font-size: 3em; margin: 0; }
+.model-info p { margin: 5px 0; color: #da2c2c; font-size:20px}
