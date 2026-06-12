@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Header Example</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style>
+        /* Custom tweaks to match the red aesthetic of Screenshot 2026-06-11 at 5.38.26 in the afternoon.jpg */
+        .bg-brand-red {
+            background-color: #dc3545; /* Bootstrap's native danger red */
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #ffffff 45%, #dc3545 45%);
+            min-height: 400px;
+        }
+        @media (max-width: 991.98px) {
+            .hero-banner {
+                background: #dc3545;
+                color: #ffffff !important;
+            }
+            .hero-banner .text-dark {
+                color: #ffffff !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- 1. Top Announcement Bar -->
+    <div class="bg-dark text-white text-center py-2 small">
+        <span class="badge bg-danger me-2">JAPAN QUALITY</span> 
+        Looking to sell gold, watches, or luxury bags? Get a free appraisal today!
+    </div>
+
+    <!-- 2. Main Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom sticky-top">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand fw-bold text-danger d-flex align-items-center" href="#">
+                <i class="bi bi-gem me-2"></i>JEWEL CAFE
+            </a>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="text-brand-red" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            What We Buy
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-menu-item px-3 py-1 d-block text-dark text-decoration-none" href="#">Gold & Jewelry</a></li>
+                            <li><a class="dropdown-menu-item px-3 py-1 d-block text-dark text-decoration-none" href="#">Luxury Watches</a></li>
+                            <li><a class="dropdown-menu-item px-3 py-1 d-block text-dark text-decoration-none" href="#">Brand Bags</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shops</a>
+                    </li>
+                </ul>
+                
+                <!-- Right Side Action Button -->
+                <div class="d-flex align-items-center">
+                    <a href="tel:+12345678" class="btn btn-outline-danger btn-sm me-2 fw-bold">
+                        <i class="bi bi-telephone-fill me-1"></i> Call Us
+                    </a>
+                    <button class="btn btn-danger btn-sm fw-bold">Free Appraisal</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. Hero Section (Inspired by the provided layout) -->
+    <section class="hero-banner d-flex align-items-center text-dark py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column: Items Grid placeholder -->
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                    <h3 class="text-muted fw-light mb-3">We Buy Luxury Goods</h3>
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-4"><div class="p-3 bg-light border rounded shadow-sm small">⌚ Watches</div></div>
+                        <div class="col-4"><div class="p-3 bg-light border rounded shadow-sm small">👜 Bags</div></div>
+                        <div class="col-4"><div class="p-3 bg-light border rounded shadow-sm small">👑 Gold</div></div>
+                    </div>
+                </div>
+                <!-- Right Column: Text Marketing -->
+                <div class="col-lg-7 text-white ps-lg-5">
+                    <div class="mb-2">
+                        <span class="badge bg-white text-danger px-3 py-2 fw-bold">🇯🇵 FROM JAPAN</span>
+                    </div>
+                    <h1 class="display-4 fw-black text-uppercase tracking-wide mb-2" style="font-weight: 900;">
+                        Easy & Speedy
+                    </h1>
+                    <h2 class="h1 text-uppercase fw-bold text-warning mb-3">
+                        Purchase at Jewel Cafe!
+                    </h2>
+                    <div class="d-inline-block bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-4">
+                        <i class="bi bi-check-circle-fill me-1"></i> Appraisal $0 Free
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-light btn-lg text-danger fw-bold me-2 shadow-sm">Find a Shop Near Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+<!-- Bootstrap 5 JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

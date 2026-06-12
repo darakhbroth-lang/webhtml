@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORME — New Arrivals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #1a1a18;
+      --stone: #e8e4dc;
+      --clay:  #b5937a;
+      --mist:  #f5f3ef;
+      --fade:  #9a9690;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--mist);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ── NAV ── */
+    header {
+      border-bottom: 1px solid var(--stone);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--mist);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 300;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 20px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fade);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .cart-icon { font-size: 3rem; cursor: pointer; color: var(--ink); }
+
+    /* ── HERO STRIP ── */
+    .hero-strip {
+      padding: 3.5rem 2rem 2rem;
+      border-bottom: 1px solid var(--stone);
+    }
+    .hero-strip .eyebrow {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: .6rem;
+    }
+    .hero-strip h1 {
+      font-family: 'Cormorant Garamond , serif';
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -.01em;
+      max-width: 16ch;
+    }
+    .hero-strip h1 em {
+      font-style: italic;
+      color: var(--clay);
+    }
+    .filter-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .filter-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1px solid var(--stone);
+      background: transparent;
+      padding: .45rem 1.1rem;
+      cursor: pointer;
+      color: var(--fade);
+      border-radius: 0;
+      transition: all .2s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+     .hero {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+    }
+ 
+    /* LEFT PANEL — white / light pink */
+    .hero-left {
+      background: #f4f1f1;
+      flex: 0 0 45%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 2rem 2rem 2.5rem;
+      z-index: 2;
+    }
+    /* diagonal cut on right edge */
+    
+ 
+    /* heart polka-dot pattern */
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, #f9b8c8 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .35;
+      pointer-events: none;
+    }
+ 
+    .flag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #c20000;
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      margin-bottom: 1.2rem;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+    }
+    .flag-badge img { width: 22px; height: auto; }
+ 
+    .clothes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .55rem;
+      position: relative;
+      z-index: 2;
+    }
+    .clothes-grid .item {
+      background: #fff;
+      border-radius: 8px;
+      padding: .5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      aspect-ratio: 1;
+      font-size: 1.9rem;
+      transition: transform .2s;
+    }
+    .clothes-grid .item:hover { transform: scale(1.08); }
+ 
+    /* RIGHT PANEL — vivid red */
+    .hero-right {
+      background: #d62b2b;
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 2.5rem 2.5rem 4rem;
+      overflow: hidden;
+      z-index: 1;
+    }
+ 
+    /* dot texture on red */
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.08) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
+      pointer-events: none;
+    }
+ 
+    .tagline-kh {
+      font-size: .9rem;
+      color: #ffd84d;
+      font-weight: 600;
+      margin-bottom: .4rem;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .tagline-kh::before,
+    .tagline-kh::after {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      background: #ffd84d;
+      vertical-align: middle;
+    }
+ 
+    .hero-headline {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      line-height: 1.0;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-headline .accent { color: #ffd84d; }
+ 
+    .hero-sub {
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      margin-top: .8rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+    }
+ 
+    /* FREE badge bubble */
+    .free-badge {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.6rem;
+      background: #ffd84d;
+      color: #d62b2b;
+      border-radius: 50%;
+      width: 88px;
+      height: 88px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      line-height: 1.1;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      z-index: 5;
+      text-align: center;
+    }
+    .free-badge .badge-label { font-size: .62rem; letter-spacing: .05em; text-transform: uppercase; }
+    .free-badge .badge-price { font-family: 'Anton', sans-serif; font-size: 1.9rem; }
+ 
+    .cta-btn {
+      display: inline-block;
+      margin-top: 1.4rem;
+      background: #fff;
+      color: #d62b2b;
+      font-weight: 900;
+      font-size: .88rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .7rem 1.8rem;
+      text-decoration: none;
+      border-radius: 3px;
+      position: relative;
+      z-index: 2;
+      transition:  .2s, color .2s, transform .15s;
+      width: fit-content;
+    }
+    .cta-btn:hover { background: #ffd84d; color: #d62b2b; transform: translateY(-2px); }
+ 
+
+    /* ── PRODUCT GRID ── */
+    main { padding: 2.5rem 2rem 4rem; }
+
+    .product-card {
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow .25s;
+    }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(26,26,24,.10); }
+
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--stone);
+      aspect-ratio: 3/4;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+      display: block;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+
+    .badge-tag {
+      position: absolute;
+      top: .85rem;
+      left: .85rem;
+      font-size: .62rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .25rem .65rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .badge-new  { background: var(--ink); color: #fff; }
+    .badge-sale { background: var(--clay); color: #fff; }
+
+    .wishlist-btn {
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      background: rgba(255,255,255,.82);
+      border: none;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .product-card:hover .wishlist-btn { opacity: 1; }
+
+    .quick-add {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      color: #fff;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: .75rem;
+      transform: translateY(100%);
+      transition: transform .28s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .product-card:hover .quick-add { transform: translateY(0); }
+
+    .product-info {
+      padding: .9rem 1rem 1.1rem;
+    }
+    .product-info .cat {
+      font-size: .65rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--fade);
+      margin-bottom: .25rem;
+    }
+    .product-info .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: .35rem;
+    }
+    .product-info .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+    }
+    .price-now {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .price-old {
+      font-size: .78rem;
+      color: var(--fade);
+      text-decoration: line-through;
+    }
+    .price-sale { color: var(--clay); }
+
+    .swatch-row {
+      display: flex;
+      gap: .35rem;
+      margin-top: .5rem;
+    }
+    .swatch {
+      width: .95rem;
+      height: .95rem;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,.12);
+      cursor: pointer;
+      transition: transform .15s;
+    }
+    .swatch:hover { transform: scale(1.25); }
+
+    /* ── PAGINATION ── */
+    .pag-wrap { padding: 1rem 2rem 3rem; }
+    .page-link {
+      color: var(--ink);
+      border-color: var(--stone);
+      font-size: .78rem;
+      letter-spacing: .06em;
+      border-radius: 0 !important;
+    }
+    .page-item.active .page-link {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+    .page-link:hover { background: var(--stone); color: var(--ink); }
+    
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <a href="#" class="brand">CLOTHES</a>
+  <ul class="nav-links">
+    <li><a href="#men">Men</a></li>
+    <li><a href="#">New In</a></li>
+    <li><a href="#contact">Sale</a></li>
+  </ul>
+  <span class="cart-icon">🛒</span>
+</header>
+<section class="hero">
+ 
+  <!-- LEFT: clothing items grid -->
+  <div class="hero-left">
+   
+     <img src="https://i.pinimg.com/736x/37/42/80/374280666ead37ac8896450ecd649755.jpg" alt="">
+    
+  </div>
+ 
+  <!-- RIGHT: headline & CTA -->
+  <div class="hero-right">
+    <div class="free-badge">
+      <span class="badge-label">Valuation</span>
+      <span class="badge-price">$0</span>
+    </div>
+    <h1 class="hero-headline">
+      Easy &amp; <span class="accent">Fast</span><br>
+      Sell Your<br>
+      Clothes!
+    </h1>
+ 
+    <p class="hero-sub">Brands, preloved &amp; vintage — all accepted</p>
+ 
+    <a href="#" class="cta-btn">Sell Now →</a>
+  </div>
+ 
+</section>
+<div class="container-fluid shadow-sm py-5" style="background-color: rgba(241, 235, 224, 0.402);">
+        <div class="container">
+            <h1 class="text-center fw-bold text-danger" style="font-size: 40px;">Why Choose Us?</h1>
+            <p class="text-center text-muted mb-5">It will tell you all about our features of chothes </p>
+            
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card p-3 shadow-sm border-0 h-100">
+                        <img src="https://i.pinimg.com/736x/f6/62/f2/f662f28e4eec123166173f68ecc0ffe5.jpg" class="card-img-top rounded" alt="Gen Y fhasion">
+                        <div class="card-body text-center">
+                            <h3 class="fw-bold" style="color: rgb(238, 85, 8);">GEN Y</h3>
+                            <p class="card-text text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card p-3 shadow-sm border-0 h-100">
+                        <img src="https://i.pinimg.com/736x/20/7a/e5/207ae5b824cf1e7a2f7d8aa4b941dc70.jpg" class="card-img-top rounded" alt="Gen Z fhasion">
+                        <div class="card-body text-center">
+                            <h3 class="fw-bold" style="color: rgb(238, 85, 8);">GEN ALPHA</h3>
+                            <p class="card-text text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card p-3 shadow-sm border-0 h-100">
+                        <img src="https://i.pinimg.com/736x/37/42/80/374280666ead37ac8896450ecd649755.jpg" class="card-img-top rounded" alt="Gen X fhaasion">
+                        <div class="card-body text-center">
+                            <h3 class="fw-bold" style="color: rgb(238, 85, 8);">GEN Z</h3>
+                            <p class="card-text text-muted"></p>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- HERO STRIP -->
+<section class="hero-strip">
+  <p class="eyebrow">SS 2026 Collection</p>
+  <h1>New <em>Arrivals</em><br>Just In Strock</h1>
+  <div class="filter-row">
+    <button class="filter-btn">All</button>
+    <button class="filter-btn">Tops</button>
+    <button class="filter-btn">Bottoms</button>
+    <button class="filter-btn">Outerwear</button>
+    <button class="filter-btn">Dresses</button>
+    <button class="filter-btn">Accessories</button>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+ <section id="men">
+<main>
+  <div class="container-fluid px-0">
+    <div class="row g-3">
+
+      <!-- Card 1 -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/1c/f4/5b/1cf45bb7efd77e8283c513b26309b957.jpg" alt="Linen Shirt"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$139</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#e8ddd0;"></span>
+              <span class="swatch" style="background:#6b7a6a;"></span>
+              <span class="swatch" style="background:#2c2c2c;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/f9/45/eb/f945ebc5fdde6e98c61ffbdbdda670eb.jpg" alt="Midi Dress"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Dresses</p>
+            <div class="price-row"><span class="price-now">$125</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#c9bfb0;"></span>
+              <span class="swatch" style="background:#8c6a55;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/1200x/19/ee/79/19ee79ba2c1990abf692aa699621d5ff.jpg" alt="Chore Coat"/>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Outerwear</p>
+            <div class="price-row"><span class="price-now">$165</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#5a5248;"></span>
+              <span class="swatch" style="background:#c5b8aa;"></span>
+              <span class="swatch" style="background:#1e1e1e;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 (SALE) -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/8d/4f/c8/8d4fc80ade3f7a65be8b7d1bd5cc806e.jpg" alt="Wide Leg Trousers"/>
+            <span class="badge-tag badge-sale">Sale</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Bottoms</p>
+            <div class="price-row">
+              <span class="price-now price-sale">$148</span>
+              <span class="price-old">$115</span>
+            </div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#d4cfc7;"></span>
+              <span class="swatch" style="background:#2e2e2e;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/1200x/f4/e7/12/f4e712db214cd138a5b5d2dfdbde9315.jpg" alt="Tank Top"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$142</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#f0ece4;"></span>
+              <span class="swatch" style="background:#c2a68a;"></span>
+              <span class="swatch" style="background:#4a4540;"></span>
+              <span class="swatch" style="background:#7a8572;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/1200x/ba/7b/63/ba7b637ff4bece885a84932435cf8a8e.jpg" alt="Trench Coat"/>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Outerwear</p>
+            <div class="price-row"><span class="price-now">$160</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#c9a87c;"></span>
+              <span class="swatch" style="background:#1e1e1e;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 (SALE) -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/1200x/fc/2a/b9/fc2ab9416fd8e948616b17d351eb4064.jpg" alt="Slip Skirt"/>
+            <span class="badge-tag badge-sale">Sale</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Bottoms</p>
+            <div class="price-row">
+              <span class="price-now price-sale">$155</span>
+              <span class="price-old">$190</span>
+            </div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#d4bfa8;"></span>
+              <span class="swatch" style="background:#8c7b9e;"></span>
+              <span class="swatch" style="background:#1c1c1c;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/7c/2b/7a/7c2b7a392a59cbda62c88cfacd421de0.jpg" alt="Knit Cardigan"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$118</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#e8dcc8;"></span>
+              <span class="swatch" style="background:#8e7c6e;"></span>
+              <span class="swatch" style="background:#3a3230;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/dc/bc/4e/dcbc4e19bc3c60d35a1b9c6df4f844b7.jpg" alt="Knit Cardigan"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$128</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#e8dcc8;"></span>
+              <span class="swatch" style="background:#8e7c6e;"></span>
+              <span class="swatch" style="background:#3a3230;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/1200x/96/c5/91/96c5918bd6edd80b84e1f66929d1b6af.jpg" alt="Knit Cardigan"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$108</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#e8dcc8;"></span>
+              <span class="swatch" style="background:#8e7c6e;"></span>
+              <span class="swatch" style="background:#3a3230;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/12/75/81/12758158806bf03c0a583d5e9ea2b8f8.jpg" alt="Knit Cardigan"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$150</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#e8dcc8;"></span>
+              <span class="swatch" style="background:#8e7c6e;"></span>
+              <span class="swatch" style="background:#3a3230;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-6 col-md-4 col-lg-3">
+        <div class="product-card h-100">
+          <div class="product-img-wrap">
+            <img src="https://i.pinimg.com/736x/4c/8b/4c/4c8b4ca8729066fea13d49eaf58a2d30.jpg" alt="Knit Cardigan"/>
+            <span class="badge-tag badge-new">New</span>
+            <button class="wishlist-btn" title="Add to wishlist">♡</button>
+            <button class="quick-add">+ Quick Add</button>
+          </div>
+          <div class="product-info">
+            <p class="cat">Tops</p>
+            <div class="price-row"><span class="price-now">$110</span></div>
+            <div class="swatch-row">
+              <span class="swatch" style="background:#e8dcc8;"></span>
+              <span class="swatch" style="background:#8e7c6e;"></span>
+              <span class="swatch" style="background:#3a3230;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /row -->
+  </div>
+</main>
+</section>
+<section id="contact">
+   <section class="container py-5">
+    <!-- Section Heading -->
+    <div class="row mb-5">
+        <div class="col-md-8 mx-auto text-center">
+            <h2 class="fw-bold text-dark">Get In Touch</h2>
+            <p class="text-muted">Have any questions or want to work together? Drop us a message below.</p>
+        </div>
+    </div>
+
+    <!-- Contact Row -->
+    <div class="row g-5 justify-content-center">
+        
+        <!-- Left Side: Contact Form -->
+        <div class="col-md-7 col-lg-6">
+            <div class="card border-0 shadow-sm p-4 bg-white rounded-3">
+                <form>
+                    <div class="row g-3">
+                        <!-- Full Name -->
+                        <div class="col-sm-6">
+                            <label for="fullName" class="form-label fw-semibold text-secondary small">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Hok Leng" required>
+                        </div>
+                        
+                        <!-- Email Address -->
+                        <div class="col-sm-6">
+                            <label for="emailAddr" class="form-label fw-semibold text-secondary small">Email Address</label>
+                            <input type="email" class="form-control" id="emailAddr" placeholder="leng@example.com" required>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="col-12">
+                            <label for="subject" class="form-label fw-semibold text-secondary small">Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="How can we help you?" required>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="col-12">
+                            <label for="message" class="form-label fw-semibold text-secondary small">Your Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Side: Contact Information Details -->
+        <div class="col-md-5 col-lg-4 d-flex flex-column justify-content-center">
+            
+            <!-- Phone Card -->
+            <div class="d-flex align-items-start mb-4">
+                <div>
+                    <h5 class="fw-bold mb-1">Phone Number</h5>
+                    <p class="text-muted mb-0">+(885) 15298572</p>
+                </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="d-flex align-items-start mb-4">
+                
+                <div>
+                    <h5 class="fw-bold mb-1">Email Address</h5>
+                    <p class="text-muted mb-0">leng@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="d-flex align-items-start mb-4">
+                <div>
+                    <h5 class="fw-bold mb-1">Our Location</h5>
+                    <p class="text-muted mb-0">Phnom Penh, Cambodia</p>
+                </div>
+            </div>
+
+            <hr class="my-4 text-muted">
+
+            <!-- Social Links Quick Menu -->
+            <div>
+                <h6 class="fw-bold text-uppercase tracking-wider text-secondary small mb-3">Follow Us</h6>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+</section>
+
+<!-- PAGINATION -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
